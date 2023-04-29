@@ -10,6 +10,9 @@ app.use(cors());
 const usersRouter = require('./src/routes/users.route');
 app.use('/users', usersRouter);
 
+const interestsRouter = require('./src/routes/interests.route');
+app.use('/interests', interestsRouter);
+
 const postsRouter = require('./src/routes/posts.route');
 app.use('/posts', postsRouter);
 

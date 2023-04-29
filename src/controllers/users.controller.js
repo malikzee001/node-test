@@ -36,9 +36,8 @@ const login = async (req, res) => {
 };
 
 const createUser = async (req, res, next) => {
-  console.log("creating");
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, interest } = req.body;
 
     // Check if user with given email already exists
     const existingUser = await User.findOne({ email });
@@ -55,6 +54,7 @@ const createUser = async (req, res, next) => {
       name,
       email,
       passwordHash,
+      interest
     });
 
     // Save user to database
@@ -72,6 +72,7 @@ const createUser = async (req, res, next) => {
         id: newUser._id,
         name: newUser.name,
         email: newUser.email,
+        interest: newUser.interest
       },
     });
   } catch (error) {
